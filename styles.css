@@ -1,19 +1,19 @@
 :root {
-  --bg: #f4efe5;
-  --bg-deep: #ebe4d6;
-  --surface: rgba(255, 252, 247, 0.72);
-  --surface-strong: rgba(255, 252, 247, 0.9);
-  --surface-dark: rgba(32, 41, 54, 0.82);
-  --ink: #1f2733;
-  --muted: #616b78;
-  --line: rgba(31, 39, 51, 0.1);
-  --line-strong: rgba(31, 39, 51, 0.18);
-  --blue: #3f79f4;
-  --cyan: #59bff8;
-  --violet: #7f6dff;
-  --gold: #d8b56a;
-  --shadow-soft: 0 16px 40px rgba(25, 35, 52, 0.08);
-  --shadow-strong: 0 28px 80px rgba(25, 35, 52, 0.16);
+  --bg: #eef2ff;
+  --bg-deep: #dfe7ff;
+  --surface: rgba(247, 249, 255, 0.72);
+  --surface-strong: rgba(248, 250, 255, 0.9);
+  --surface-dark: rgba(25, 31, 52, 0.82);
+  --ink: #1a2340;
+  --muted: #56627f;
+  --line: rgba(33, 42, 74, 0.12);
+  --line-strong: rgba(33, 42, 74, 0.2);
+  --blue: #4a7cff;
+  --cyan: #63c6ff;
+  --violet: #8b67ff;
+  --gold: #9d8bff;
+  --shadow-soft: 0 16px 40px rgba(24, 33, 68, 0.1);
+  --shadow-strong: 0 28px 80px rgba(24, 33, 68, 0.18);
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 18px;
@@ -33,10 +33,10 @@ body {
   color: var(--ink);
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at 14% 12%, rgba(89, 191, 248, 0.18), transparent 24%),
-    radial-gradient(circle at 82% 8%, rgba(127, 109, 255, 0.12), transparent 20%),
-    radial-gradient(circle at 55% 100%, rgba(216, 181, 106, 0.1), transparent 26%),
-    linear-gradient(180deg, #fbf8f2 0%, var(--bg) 46%, var(--bg-deep) 100%);
+    radial-gradient(circle at 14% 12%, rgba(99, 198, 255, 0.24), transparent 26%),
+    radial-gradient(circle at 82% 8%, rgba(139, 103, 255, 0.22), transparent 24%),
+    radial-gradient(circle at 55% 100%, rgba(74, 124, 255, 0.14), transparent 28%),
+    linear-gradient(180deg, #f7f9ff 0%, var(--bg) 46%, var(--bg-deep) 100%);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -98,7 +98,7 @@ video {
   padding: 14px 18px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
-  background: rgba(255, 252, 247, 0.62);
+  background: rgba(244, 247, 255, 0.66);
   backdrop-filter: blur(22px);
   box-shadow: var(--shadow-soft);
 }
@@ -155,7 +155,7 @@ video {
 .showcase-kicker,
 .workflow-index {
   margin: 0 0 14px;
-  color: #4369b5;
+  color: #5267d8;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -225,11 +225,17 @@ h3 {
 
 .meta-pill {
   padding: 10px 14px;
-  border: 1px solid rgba(63, 121, 244, 0.12);
+  border: 1px solid rgba(74, 124, 255, 0.18);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.6);
-  color: #425167;
+  background: rgba(245, 248, 255, 0.72);
+  color: #3f4e74;
   font-size: 0.92rem;
+}
+
+.meta-pill-accent {
+  border-color: rgba(139, 103, 255, 0.22);
+  background: linear-gradient(135deg, rgba(99, 198, 255, 0.18), rgba(139, 103, 255, 0.18));
+  color: #33458d;
 }
 
 .hero-note {
@@ -301,7 +307,7 @@ h3 {
 .video-shell {
   overflow: hidden;
   border-radius: var(--radius-xl);
-  background: rgba(255, 252, 247, 0.84);
+  background: rgba(245, 248, 255, 0.84);
   box-shadow: var(--shadow-strong);
 }
 
@@ -311,7 +317,7 @@ h3 {
   gap: 14px;
   padding: 16px 18px;
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(247, 249, 255, 0.8);
 }
 
 .window-label {
@@ -347,7 +353,7 @@ h3 {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  background: linear-gradient(180deg, #eef4ff, #f9f6ef);
+  background: linear-gradient(180deg, #edf4ff, #ebe9ff);
 }
 
 .floating-card {
@@ -396,7 +402,7 @@ h3 {
   border-radius: 28px;
   background:
     linear-gradient(90deg, rgba(63, 121, 244, 0.13), transparent 34%),
-    rgba(255, 252, 247, 0.76);
+    rgba(245, 248, 255, 0.78);
 }
 
 .trust-band::before {

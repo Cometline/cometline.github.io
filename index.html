@@ -64,9 +64,7 @@
             </div>
 
             <div class="hero-meta">
-              <span class="meta-pill">Native-feeling UI</span>
-              <span class="meta-pill">Visible tool runs</span>
-              <span class="meta-pill">Persistent memory</span>
+              <span class="meta-pill meta-pill-accent" id="download-count-pill">Loading downloads...</span>
             </div>
 
             <p class="hero-note"><span id="release-status">Loading latest release...</span></p>
@@ -431,33 +429,58 @@
       }
 
       const fallbackReleaseUrl = "https://github.com/Cometline/cometline/releases/latest";
-      const latestReleaseApi = "https://api.github.com/repos/Cometline/cometline/releases/latest";
+      const releasesApi = "https://api.github.com/repos/Cometline/cometline/releases?per_page=100";
       const statusNode = document.getElementById("release-status");
       const downloadLink = document.getElementById("download-link");
       const heroDownloadLink = document.getElementById("hero-download-link");
+      const downloadCountPill = document.getElementById("download-count-pill");
 
-      fetch(latestReleaseApi)
+      const currentYear = new Date().getFullYear();
+      const formatCount = (count) => new Intl.NumberFormat("en-US").format(count);
+      const isDownloadAsset = (assetName) => /\.(dmg|zip)$/i.test(assetName) && !/\.blockmap$/i.test(assetName);
+
+      fetch(releasesApi)
         .then((response) => {
-          if (!response.ok) throw new Error("Failed to load latest release");
+          if (!response.ok) throw new Error("Failed to load releases");
           return response.json();
         })
-        .then((release) => {
-          const dmg = Array.isArray(release.assets)
-            ? release.assets.find((asset) => /\.dmg$/i.test(asset.name) && !/\.blockmap$/i.test(asset.name))
+        .then((releases) => {
+          const allReleases = Array.isArray(releases) ? releases : [];
+          const [latestRelease] = allReleases;
+          const currentYearReleases = allReleases.filter((release) => {
+            const publishedAt = release?.published_at || release?.created_at;
+            return publishedAt && new Date(publishedAt).getFullYear() === currentYear;
+          });
+          const dmg = Array.isArray(latestRelease?.assets)
+            ? latestRelease.assets.find((asset) => /\.dmg$/i.test(asset.name) && !/\.blockmap$/i.test(asset.name))
             : null;
           const href = dmg && dmg.browser_download_url ? dmg.browser_download_url : fallbackReleaseUrl;
+          const totalDownloads = currentYearReleases.reduce((releaseCount, release) => {
+            const assetCount = Array.isArray(release.assets)
+              ? release.assets.reduce(
+                  (sum, asset) => sum + (isDownloadAsset(asset.name) ? Number(asset.download_count) || 0 : 0),
+                  0
+                )
+              : 0;
+
+            return releaseCount + assetCount;
+          }, 0);
 
           if (downloadLink) downloadLink.href = href;
           if (heroDownloadLink) heroDownloadLink.href = href;
+          if (downloadCountPill) {
+            downloadCountPill.textContent = `${formatCount(totalDownloads)} downloads from ${currentYear} releases`;
+          }
           if (statusNode) {
-            statusNode.textContent = release.tag_name
-              ? `Latest release: ${release.tag_name} ready for download.`
+            statusNode.textContent = latestRelease?.tag_name
+              ? `Latest release: ${latestRelease.tag_name}`
               : "DMG distributed from GitHub Releases.";
           }
         })
         .catch(() => {
           if (downloadLink) downloadLink.href = fallbackReleaseUrl;
           if (heroDownloadLink) heroDownloadLink.href = fallbackReleaseUrl;
+          if (downloadCountPill) downloadCountPill.textContent = "GitHub release downloads";
           if (statusNode) statusNode.textContent = "DMG distributed from GitHub Releases.";
         });
     </script>
