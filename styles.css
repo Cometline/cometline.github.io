@@ -389,9 +389,34 @@ h3 {
 }
 
 .trust-band {
-  padding: 30px 32px;
-  border-radius: var(--radius-lg);
-  text-align: center;
+  position: relative;
+  width: min(100%, 920px);
+  margin-inline: auto;
+  padding: 28px 34px 28px 42px;
+  border-radius: 28px;
+  background:
+    linear-gradient(90deg, rgba(63, 121, 244, 0.13), transparent 34%),
+    rgba(255, 252, 247, 0.76);
+}
+
+.trust-band::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 24px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--blue), var(--violet));
+}
+
+.trust-band p {
+  max-width: 780px;
+  margin: 0;
+  color: #4b5565;
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  line-height: 1.55;
+  letter-spacing: -0.025em;
 }
 
 .section-heading {
@@ -640,10 +665,19 @@ h3 {
   .showcase-copy,
   .workflow-card,
   .download-panel,
-  .trust-band,
   .manifesto-section blockquote {
     padding-left: 18px;
     padding-right: 18px;
+  }
+
+  .trust-band {
+    padding: 22px 20px 22px 28px;
+  }
+
+  .trust-band::before {
+    top: 20px;
+    bottom: 20px;
+    left: 16px;
   }
 }
 
