@@ -288,6 +288,148 @@
     </div>
 
     <script>
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      if (!reducedMotion.matches) {
+        document.documentElement.style.scrollBehavior = "auto";
+
+        let currentScroll = window.scrollY;
+        let targetScroll = window.scrollY;
+        let scrollFrame = null;
+        let isDampedScrolling = false;
+        let lastTouchY = null;
+        let touchVelocity = 0;
+
+        const maxScroll = () => document.documentElement.scrollHeight - window.innerHeight;
+        const clampScroll = (value) => Math.max(0, Math.min(value, maxScroll()));
+
+        const settleScroll = () => {
+          const distance = targetScroll - currentScroll;
+
+          if (Math.abs(distance) < 0.4) {
+            currentScroll = targetScroll;
+            window.scrollTo(0, currentScroll);
+            scrollFrame = null;
+            isDampedScrolling = false;
+            return;
+          }
+
+          isDampedScrolling = true;
+          currentScroll += distance * 0.12;
+          window.scrollTo(0, currentScroll);
+          scrollFrame = requestAnimationFrame(settleScroll);
+        };
+
+        const startDampedScroll = () => {
+          if (!scrollFrame) scrollFrame = requestAnimationFrame(settleScroll);
+        };
+
+        window.addEventListener(
+          "wheel",
+          (event) => {
+            if (event.ctrlKey || event.metaKey) return;
+
+            event.preventDefault();
+            const delta = event.deltaMode === 1 ? event.deltaY * 18 : event.deltaY;
+            targetScroll = clampScroll(targetScroll + delta);
+            startDampedScroll();
+          },
+          { passive: false }
+        );
+
+        window.addEventListener(
+          "touchstart",
+          (event) => {
+            if (event.touches.length !== 1) return;
+
+            lastTouchY = event.touches[0].clientY;
+            touchVelocity = 0;
+            targetScroll = window.scrollY;
+            currentScroll = window.scrollY;
+          },
+          { passive: true }
+        );
+
+        window.addEventListener(
+          "touchmove",
+          (event) => {
+            if (event.touches.length !== 1 || lastTouchY === null) return;
+
+            event.preventDefault();
+            const touchY = event.touches[0].clientY;
+            const delta = (lastTouchY - touchY) * 1.15;
+            lastTouchY = touchY;
+            touchVelocity = delta;
+            targetScroll = clampScroll(targetScroll + delta);
+            startDampedScroll();
+          },
+          { passive: false }
+        );
+
+        window.addEventListener("touchend", () => {
+          if (lastTouchY === null) return;
+
+          lastTouchY = null;
+          targetScroll = clampScroll(targetScroll + touchVelocity * 8);
+          touchVelocity = 0;
+          startDampedScroll();
+        });
+
+        window.addEventListener("touchcancel", () => {
+          lastTouchY = null;
+          touchVelocity = 0;
+        });
+
+        window.addEventListener("keydown", (event) => {
+          const scrollKeys = {
+            ArrowDown: 90,
+            ArrowUp: -90,
+            PageDown: window.innerHeight * 0.85,
+            PageUp: window.innerHeight * -0.85,
+            Home: -Infinity,
+            End: Infinity,
+            " ": event.shiftKey ? window.innerHeight * -0.85 : window.innerHeight * 0.85,
+          };
+
+          if (!(event.key in scrollKeys) || event.defaultPrevented) return;
+
+          const activeTag = document.activeElement && document.activeElement.tagName;
+          if (["INPUT", "TEXTAREA", "SELECT"].includes(activeTag)) return;
+
+          event.preventDefault();
+          const delta = scrollKeys[event.key];
+          targetScroll = delta === Infinity
+            ? maxScroll()
+            : delta === -Infinity
+              ? 0
+              : clampScroll(targetScroll + delta);
+          startDampedScroll();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+          link.addEventListener("click", (event) => {
+            const id = link.getAttribute("href");
+            const target = id === "#top" ? document.body : document.querySelector(id);
+            if (!target) return;
+
+            event.preventDefault();
+            targetScroll = clampScroll(target.getBoundingClientRect().top + window.scrollY - 24);
+            startDampedScroll();
+          });
+        });
+
+        window.addEventListener("scroll", () => {
+          if (isDampedScrolling) return;
+          currentScroll = window.scrollY;
+          targetScroll = window.scrollY;
+        });
+
+        window.addEventListener("resize", () => {
+          targetScroll = clampScroll(targetScroll);
+          currentScroll = clampScroll(window.scrollY);
+        });
+      }
+
       const fallbackReleaseUrl = "https://github.com/Cometline/cometline/releases/latest";
       const latestReleaseApi = "https://api.github.com/repos/Cometline/cometline/releases/latest";
       const statusNode = document.getElementById("release-status");
