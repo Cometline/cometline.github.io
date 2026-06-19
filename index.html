@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cometline | Local-first desktop AI assistant</title>
+    <meta
+      name="description"
+      content="Cometline is a local-first desktop AI assistant with persistent workspace sessions, visible streaming reasoning and tools, semantic memory, and a native-feeling macOS UI."
+    />
+    <meta property="og:title" content="Cometline" />
+    <meta
+      property="og:description"
+      content="A local-first desktop AI assistant for ambitious software work."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#f7f5ef" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Cometline home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-wordmark">Cometline</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#architecture">How it works</a>
+          <a href="#download">Download</a>
+        </nav>
+        <a class="button button-small button-primary" href="#download">Download DMG</a>
+      </header>
+
+      <main id="top">
+        <section class="hero section">
+          <div class="hero-copy">
+            <p class="eyebrow">Local-first desktop AI</p>
+            <h1>Elegant on the surface. Serious under the hood.</h1>
+            <p class="hero-text">
+              Cometline brings together a native-feeling macOS interface, a trusted local
+              runtime, streaming reasoning and tools, and persistent workspace memory for deep,
+              focused software work.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                id="hero-download-link"
+                href="https://github.com/Cometline/cometline/releases/latest"
+              >
+                Download for macOS
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://github.com/Cometline/cometline"
+              >
+                View on GitHub
+              </a>
+            </div>
+            <p class="hero-note">
+              <span id="release-status">Loading latest release...</span>
+            </p>
+          </div>
+
+          <div class="hero-visual" aria-label="Cometline product preview">
+            <div class="product-window">
+              <div class="window-topbar">
+                <div class="traffic-lights" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="window-title">Cometline</div>
+                <div class="window-chip">Desktop</div>
+              </div>
+
+              <div class="window-body">
+                <aside class="sidebar-panel">
+                  <div class="sidebar-section">
+                    <div class="sidebar-label">Workspace</div>
+                    <div class="sidebar-project">cometline-release</div>
+                  </div>
+                  <div class="sidebar-section">
+                    <div class="sidebar-label">Sessions</div>
+                    <div class="sidebar-item active">Launch landing page</div>
+                    <div class="sidebar-item">Refine intro motion</div>
+                    <div class="sidebar-item">Tune default model</div>
+                  </div>
+                </aside>
+
+                <div class="chat-panel">
+                  <div class="status-row">
+                    <span class="status-pill">Streaming reasoning</span>
+                    <span class="status-pill">Tools visible</span>
+                    <span class="status-pill">Memory on</span>
+                  </div>
+
+                  <div class="message-stack">
+                    <div class="message user">
+                      <p>Build a polished landing page and keep the download flow simple.</p>
+                    </div>
+
+                    <div class="message assistant">
+                      <p>
+                        I’m composing a one-page marketing site, using the desktop app’s warm
+                        paper palette, glassy panels, and blue comet glow as the visual spine.
+                      </p>
+                    </div>
+
+                    <div class="reasoning-card">
+                      <div class="reasoning-head">Live activity</div>
+                      <ul>
+                        <li>Analyzing workspace structure</li>
+                        <li>Drafting hero and feature sections</li>
+                        <li>Preparing GitHub Pages deployment</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="composer-preview">
+                    <span>Ask Cometline to inspect, plan, build, and explain.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section trust-strip">
+          <p>
+            Built for developers who want the calm of a desktop app and the power of an agent
+            runtime that stays close to their code.
+          </p>
+        </section>
+
+        <section class="section" id="features">
+          <div class="section-heading">
+            <p class="eyebrow">Features</p>
+            <h2>A more deliberate way to work with AI.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>Local-first runtime</h3>
+              <p>
+                The desktop shell talks to a local agent runtime, keeping execution, memory, and
+                session state close to your machine.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <h3>Visible reasoning and tools</h3>
+              <p>
+                Watch streamed text, reasoning blocks, tool calls, and tool results unfold in real
+                time instead of guessing what happened.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <h3>Workspace-scoped sessions</h3>
+              <p>
+                Keep conversations grounded in the project you are actually working on, with
+                persistent sessions that remain easy to revisit.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <h3>Semantic memory</h3>
+              <p>
+                Retrieve useful context before each turn and preserve durable project knowledge as
+                work continues.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <h3>Multi-provider model support</h3>
+              <p>
+                Use OpenAI, Anthropic, compatible APIs, and more while keeping the desktop
+                experience coherent.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <h3>Native-feeling macOS design</h3>
+              <p>
+                Cometline is shaped like a serious desktop tool: calm surfaces, keyboard-first
+                flow, and UI motion that respects focus.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section architecture-section" id="architecture">
+          <div class="section-heading narrow">
+            <p class="eyebrow">How it works</p>
+            <h2>Three layers, each with a clean responsibility.</h2>
+          </div>
+
+          <div class="architecture-flow">
+            <article class="arch-card">
+              <span class="arch-step">01</span>
+              <h3>Cometline</h3>
+              <p>
+                The Electron and Svelte desktop shell handles the interface, settings, animations,
+                and OS integration.
+              </p>
+            </article>
+
+            <article class="arch-card">
+              <span class="arch-step">02</span>
+              <h3>CometMind</h3>
+              <p>
+                The local agent runtime orchestrates multi-step runs, persistence, tools, memory,
+                and streaming API behavior.
+              </p>
+            </article>
+
+            <article class="arch-card">
+              <span class="arch-step">03</span>
+              <h3>Comet SDK</h3>
+              <p>
+                The provider boundary normalizes model I/O, streaming, retries, and tool-call
+                assembly across vendors.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section quote-section">
+          <blockquote>
+            “Cometline is for people who want their AI tools to feel like a real software
+            instrument, not a disposable browser tab.”
+          </blockquote>
+        </section>
+
+        <section class="section download-section" id="download">
+          <div class="download-card">
+            <p class="eyebrow">Download</p>
+            <h2>Try Cometline on macOS.</h2>
+            <p>
+              Download the latest DMG from GitHub Releases and launch a local-first desktop AI
+              assistant built for long-form technical work.
+            </p>
+            <div class="download-actions">
+              <a
+                class="button button-primary"
+                id="download-link"
+                href="https://github.com/Cometline/cometline/releases/latest"
+              >
+                Download DMG
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://github.com/Cometline/cometline/releases"
+              >
+                Browse releases
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <span class="brand-wordmark">Cometline</span>
+          <p>Local-first desktop AI for focused software work.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/Cometline/cometline">GitHub</a>
+          <a href="https://github.com/Cometline/cometline/releases">Releases</a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const fallbackReleaseUrl = "https://github.com/Cometline/cometline/releases/latest";
+      const latestReleaseApi = "https://api.github.com/repos/Cometline/cometline/releases/latest";
+      const statusNode = document.getElementById("release-status");
+      const downloadLink = document.getElementById("download-link");
+      const heroDownloadLink = document.getElementById("hero-download-link");
+
+      fetch(latestReleaseApi)
+        .then((response) => {
+          if (!response.ok) throw new Error("Failed to load latest release");
+          return response.json();
+        })
+        .then((release) => {
+          const dmg = Array.isArray(release.assets)
+            ? release.assets.find((asset) => /\.dmg$/i.test(asset.name) && !/\.blockmap$/i.test(asset.name))
+            : null;
+          const href = dmg && dmg.browser_download_url ? dmg.browser_download_url : fallbackReleaseUrl;
+          if (downloadLink) downloadLink.href = href;
+          if (heroDownloadLink) heroDownloadLink.href = href;
+          if (statusNode) {
+            statusNode.textContent = release.tag_name
+              ? `Latest release: ${release.tag_name} on GitHub Releases.`
+              : "DMG distributed from GitHub Releases.";
+          }
+        })
+        .catch(() => {
+          if (downloadLink) downloadLink.href = fallbackReleaseUrl;
+          if (heroDownloadLink) heroDownloadLink.href = fallbackReleaseUrl;
+          if (statusNode) statusNode.textContent = "DMG distributed from GitHub Releases.";
+        });
+    </script>
+  </body>
+</html>
