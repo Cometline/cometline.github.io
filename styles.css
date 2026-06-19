@@ -172,9 +172,9 @@ blockquote {
 
 h1 {
   margin-bottom: 20px;
-  font-size: clamp(3.3rem, 6vw, 6.1rem);
-  line-height: 0.92;
-  letter-spacing: -0.07em;
+  font-size: clamp(2.55rem, 4.4vw, 4.65rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
 }
 
 h2 {
@@ -639,7 +639,7 @@ h3 {
 
 @media (max-width: 560px) {
   h1 {
-    font-size: 2.9rem;
+    font-size: 2.25rem;
   }
 
   h2 {
