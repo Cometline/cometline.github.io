@@ -811,6 +811,10 @@ h3 {
     font-size: 2rem;
   }
 
+  .site-header {
+    display: none;
+  }
+
   .button,
   .button-small {
     width: 100%;
@@ -819,11 +823,6 @@ h3 {
   .hero-actions,
   .download-actions-panel {
     flex-direction: column;
-  }
-
-  .site-header {
-    gap: 8px;
-    padding: 10px 12px;
   }
 
   .brand {
@@ -837,18 +836,6 @@ h3 {
 
   .brand-wordmark {
     font-size: 0.88rem;
-  }
-
-  .site-nav {
-    gap: 6px;
-    font-size: 0.74rem;
-  }
-
-  .site-header > .button-small {
-    width: auto;
-    min-height: 32px;
-    padding: 0 9px;
-    font-size: 0.74rem;
   }
 
   .persona-card,
@@ -869,23 +856,6 @@ h3 {
     top: 18px;
     bottom: 18px;
     left: 14px;
-  }
-}
-
-@media (max-width: 460px) {
-  .brand-wordmark {
-    display: none;
-  }
-
-  .site-nav {
-    gap: 5px;
-    font-size: 0.7rem;
-  }
-
-  .site-header > .button-small {
-    min-height: 30px;
-    padding: 0 8px;
-    font-size: 0.7rem;
   }
 }
 
