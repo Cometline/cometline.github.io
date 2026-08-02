@@ -70,7 +70,8 @@
             </div>
 
             <div class="hero-meta">
-              <span class="meta-pill meta-pill-accent" id="download-count-pill">Loading downloads...</span>
+              <span class="meta-pill meta-pill-accent" id="download-count-pill">Loading total downloads...</span>
+              <span class="meta-pill" id="weekly-download-count-pill">Loading this week's downloads...</span>
             </div>
 
             <p class="hero-note"><span id="release-status">Loading latest release...</span></p>
@@ -492,58 +493,44 @@
       }
 
       const fallbackReleaseUrl = "https://github.com/Cometline/cometline/releases/latest";
-      const releasesApi = "https://api.github.com/repos/Cometline/cometline/releases?per_page=100";
+      const downloadStatsUrl = "./static/download-stats.json";
       const statusNode = document.getElementById("release-status");
       const downloadLink = document.getElementById("download-link");
       const heroDownloadLink = document.getElementById("hero-download-link");
       const downloadCountPill = document.getElementById("download-count-pill");
+      const weeklyDownloadCountPill = document.getElementById("weekly-download-count-pill");
 
-      const currentYear = new Date().getFullYear();
       const formatCount = (count) => new Intl.NumberFormat("en-US").format(count);
-      const isDownloadAsset = (assetName) => /\.(dmg|zip)$/i.test(assetName) && !/\.blockmap$/i.test(assetName);
-
-      fetch(releasesApi)
+      fetch(downloadStatsUrl)
         .then((response) => {
-          if (!response.ok) throw new Error("Failed to load releases");
+          if (!response.ok) throw new Error("Failed to load download stats");
           return response.json();
         })
-        .then((releases) => {
-          const allReleases = Array.isArray(releases) ? releases : [];
-          const [latestRelease] = allReleases;
-          const currentYearReleases = allReleases.filter((release) => {
-            const publishedAt = release?.published_at || release?.created_at;
-            return publishedAt && new Date(publishedAt).getFullYear() === currentYear;
-          });
-          const dmg = Array.isArray(latestRelease?.assets)
-            ? latestRelease.assets.find((asset) => /\.dmg$/i.test(asset.name) && !/\.blockmap$/i.test(asset.name))
-            : null;
-          const href = dmg && dmg.browser_download_url ? dmg.browser_download_url : fallbackReleaseUrl;
-          const totalDownloads = currentYearReleases.reduce((releaseCount, release) => {
-            const assetCount = Array.isArray(release.assets)
-              ? release.assets.reduce(
-                  (sum, asset) => sum + (isDownloadAsset(asset.name) ? Number(asset.download_count) || 0 : 0),
-                  0
-                )
-              : 0;
-
-            return releaseCount + assetCount;
-          }, 0);
+        .then((stats) => {
+          const latestRelease = stats?.latestRelease;
+          const href = latestRelease?.dmgUrl || fallbackReleaseUrl;
+          const totalDownloads = Number(stats?.totalDownloads) || 0;
+          const weeklyDownloads = Number(stats?.weeklyDownloads) || 0;
 
           if (downloadLink) downloadLink.href = href;
           if (heroDownloadLink) heroDownloadLink.href = href;
           if (downloadCountPill) {
-            downloadCountPill.textContent = `${formatCount(totalDownloads)} downloads from ${currentYear} releases`;
+            downloadCountPill.textContent = `${formatCount(totalDownloads)} total downloads`;
+          }
+          if (weeklyDownloadCountPill) {
+            weeklyDownloadCountPill.textContent = `${formatCount(weeklyDownloads)} downloads this week`;
           }
           if (statusNode) {
-            statusNode.textContent = latestRelease?.tag_name
-              ? `Latest release: ${latestRelease.tag_name}`
+            statusNode.textContent = latestRelease?.tagName
+              ? `Latest release: ${latestRelease.tagName}`
               : "DMG distributed from GitHub Releases.";
           }
         })
         .catch(() => {
           if (downloadLink) downloadLink.href = fallbackReleaseUrl;
           if (heroDownloadLink) heroDownloadLink.href = fallbackReleaseUrl;
-          if (downloadCountPill) downloadCountPill.textContent = "GitHub release downloads";
+          if (downloadCountPill) downloadCountPill.textContent = "Total downloads unavailable";
+          if (weeklyDownloadCountPill) weeklyDownloadCountPill.textContent = "Weekly downloads unavailable";
           if (statusNode) statusNode.textContent = "DMG distributed from GitHub Releases.";
         });
     </script>

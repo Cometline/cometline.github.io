@@ -1,0 +1,12 @@
+{
+  "repository": "Cometline/cometline",
+  "generatedAt": "2026-08-02T14:46:52.563Z",
+  "weekStartsAt": "2026-07-27T00:00:00.000Z",
+  "releaseCount": 221,
+  "totalDownloads": 560,
+  "weeklyDownloads": 24,
+  "latestRelease": {
+    "tagName": "v1.1.18",
+    "dmgUrl": "https://github.com/Cometline/cometline/releases/download/v1.1.18/Cometline-1.1.18-arm64.dmg"
+  }
+}
