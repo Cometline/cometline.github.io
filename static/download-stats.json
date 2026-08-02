@@ -1,9 +1,8 @@
 {
   "repository": "Cometline/cometline",
-  "generatedAt": "2026-08-02T14:52:18.269Z",
+  "generatedAt": "2026-08-02T14:58:12.613Z",
   "weekStartsAt": "2026-07-27T00:00:00.000Z",
   "releaseCount": 221,
-  "totalDownloads": 560,
   "weeklyDownloads": 24,
   "latestRelease": {
     "tagName": "v1.1.18",

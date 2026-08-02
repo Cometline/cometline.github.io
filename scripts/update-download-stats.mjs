@@ -82,7 +82,6 @@ const main = async () => {
     generatedAt: now.toISOString(),
     weekStartsAt: weekStart.toISOString(),
     releaseCount: releases.length,
-    totalDownloads: countDownloads(releases),
     weeklyDownloads: countDownloads(weeklyReleases),
     latestRelease: latestRelease
       ? {

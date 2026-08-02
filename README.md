@@ -19,5 +19,5 @@ The download CTA reads cached release metadata from:
 - `./static/download-stats.json`
 
 GitHub Actions updates the cached data once per day by fetching all release pages server-side. It
-stores total downloads, downloads for the current week, and the latest DMG URL. If the API is
-temporarily unavailable, the last successful stats file remains available to the landing page.
+stores downloads for the current week and the latest DMG URL. If the API is temporarily
+unavailable, the last successful stats file remains available to the landing page.
