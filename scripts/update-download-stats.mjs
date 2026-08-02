@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises";
 
-const repository = process.env.GITHUB_REPOSITORY || "Cometline/cometline";
+const repository = process.env.DOWNLOAD_STATS_REPOSITORY || "Cometline/cometline";
 const releasesApi = `https://api.github.com/repos/${repository}/releases`;
 const releasesPerPage = 100;
 const outputPath = new URL("../static/download-stats.json", import.meta.url);

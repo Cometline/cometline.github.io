@@ -23,6 +23,7 @@ jobs:
       - name: Generate download stats
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOWNLOAD_STATS_REPOSITORY: Cometline/cometline
         run: node scripts/update-download-stats.mjs
 
       - name: Commit changed stats
