@@ -182,7 +182,6 @@ h3 {
 .workflow-card p,
 .download-copy p,
 .site-footer p,
-.hero-note,
 .floating-card span {
   color: var(--muted);
   font-size: 1.02rem;
@@ -208,33 +207,6 @@ h3 {
 
 .hero-actions {
   margin-top: 28px;
-}
-
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 22px;
-}
-
-.meta-pill {
-  padding: 10px 14px;
-  border: 1px solid rgba(74, 124, 255, 0.18);
-  border-radius: var(--radius-md);
-  background: rgba(245, 248, 255, 0.72);
-  color: #3f4e74;
-  font-size: 0.92rem;
-}
-
-.meta-pill-accent {
-  border-color: rgba(74, 124, 255, 0.22);
-  background: rgba(245, 248, 255, 0.72);
-  color: #33458d;
-}
-
-.hero-note {
-  margin-top: 14px;
-  font-size: 0.94rem;
 }
 
 .button {

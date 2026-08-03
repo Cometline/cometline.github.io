@@ -68,14 +68,6 @@
                 View on GitHub
               </a>
             </div>
-
-            <div class="hero-meta">
-              <span class="meta-pill meta-pill-accent" id="weekly-download-count-pill">
-                Loading this week's downloads...
-              </span>
-            </div>
-
-            <p class="hero-note"><span id="release-status">Loading latest release...</span></p>
           </div>
 
           <div class="hero-stage">
@@ -312,10 +304,7 @@
             <div class="download-copy">
               <p class="eyebrow">Download</p>
               <h2 id="download-heading">Install the latest macOS build.</h2>
-              <p>
-                The download buttons resolve to the newest DMG published on GitHub Releases, with a
-                graceful fallback to the releases page if the API is unavailable.
-              </p>
+              <p>The download buttons resolve to the newest DMG published on GitHub Releases.</p>
             </div>
 
             <div class="download-actions-panel">
@@ -492,42 +481,6 @@
           currentScroll = clampScroll(window.scrollY);
         });
       }
-
-      const fallbackReleaseUrl = "https://github.com/Cometline/cometline/releases/latest";
-      const downloadStatsUrl = "./static/download-stats.json";
-      const statusNode = document.getElementById("release-status");
-      const downloadLink = document.getElementById("download-link");
-      const heroDownloadLink = document.getElementById("hero-download-link");
-      const weeklyDownloadCountPill = document.getElementById("weekly-download-count-pill");
-
-      const formatCount = (count) => new Intl.NumberFormat("en-US").format(count);
-      fetch(downloadStatsUrl)
-        .then((response) => {
-          if (!response.ok) throw new Error("Failed to load download stats");
-          return response.json();
-        })
-        .then((stats) => {
-          const latestRelease = stats?.latestRelease;
-          const href = latestRelease?.dmgUrl || fallbackReleaseUrl;
-          const weeklyDownloads = Number(stats?.weeklyDownloads) || 0;
-
-          if (downloadLink) downloadLink.href = href;
-          if (heroDownloadLink) heroDownloadLink.href = href;
-          if (weeklyDownloadCountPill) {
-            weeklyDownloadCountPill.textContent = `${formatCount(weeklyDownloads)} downloads this week`;
-          }
-          if (statusNode) {
-            statusNode.textContent = latestRelease?.tagName
-              ? `Latest release: ${latestRelease.tagName}`
-              : "DMG distributed from GitHub Releases.";
-          }
-        })
-        .catch(() => {
-          if (downloadLink) downloadLink.href = fallbackReleaseUrl;
-          if (heroDownloadLink) heroDownloadLink.href = fallbackReleaseUrl;
-          if (weeklyDownloadCountPill) weeklyDownloadCountPill.textContent = "Weekly downloads unavailable";
-          if (statusNode) statusNode.textContent = "DMG distributed from GitHub Releases.";
-        });
     </script>
   </body>
 </html>
