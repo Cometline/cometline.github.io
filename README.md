@@ -6,7 +6,7 @@ Static marketing site for Cometline, intended for GitHub Pages.
 
 - `index.html` — landing page markup
 - `styles.css` — site styling
-- `static/` — hero video, app icons, UI screenshots, and cobalt editorial backgrounds (`visual-nebula.jpg`, `visual-constellation.jpg`, `visual-comet.jpg`)
+- `static/` — hero video, app icons, UI screenshots, and cobalt editorial backgrounds. Landscape frames (`visual-nebula.jpg`, `visual-constellation.jpg`, `visual-comet.jpg`) are for desktop. Matching 9:16 portraits (`*-portrait.jpg`) are used below 1080px.
 
 ## Publishing on GitHub Pages
 

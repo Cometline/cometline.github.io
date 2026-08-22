@@ -23,17 +23,34 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="preload" as="image" href="./static/visual-nebula.jpg" />
+    <link
+      rel="preload"
+      as="image"
+      href="./static/visual-nebula.jpg"
+      media="(min-width: 1081px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./static/visual-nebula-portrait.jpg"
+      media="(max-width: 1080px)"
+    />
   </head>
   <body>
     <div class="hero-atmosphere" aria-hidden="true">
-      <img
-        src="./static/visual-nebula.jpg"
-        alt=""
-        width="1280"
-        height="720"
-        fetchpriority="high"
-      />
+      <picture>
+        <source
+          media="(max-width: 1080px)"
+          srcset="./static/visual-nebula-portrait.jpg"
+        />
+        <img
+          src="./static/visual-nebula.jpg"
+          alt=""
+          width="1280"
+          height="720"
+          fetchpriority="high"
+        />
+      </picture>
     </div>
 
     <div class="page-shell">
@@ -190,13 +207,19 @@
 
         <section class="section capabilities-section has-visual" id="capabilities" aria-labelledby="capabilities-heading">
           <div class="section-visual" aria-hidden="true">
-            <img
-              src="./static/visual-constellation.jpg"
-              alt=""
-              width="1280"
-              height="720"
-              loading="lazy"
-            />
+            <picture>
+              <source
+                media="(max-width: 1080px)"
+                srcset="./static/visual-constellation-portrait.jpg"
+              />
+              <img
+                src="./static/visual-constellation.jpg"
+                alt=""
+                width="1280"
+                height="720"
+                loading="lazy"
+              />
+            </picture>
           </div>
           <div class="section-heading split-heading">
             <div>
@@ -298,13 +321,19 @@
 
         <div class="closing-band has-visual">
           <div class="section-visual" aria-hidden="true">
-            <img
-              src="./static/visual-comet.jpg"
-              alt=""
-              width="1280"
-              height="720"
-              loading="lazy"
-            />
+            <picture>
+              <source
+                media="(max-width: 1080px)"
+                srcset="./static/visual-comet-portrait.jpg"
+              />
+              <img
+                src="./static/visual-comet.jpg"
+                alt=""
+                width="1280"
+                height="720"
+                loading="lazy"
+              />
+            </picture>
           </div>
 
         <section class="section download-section" id="download" aria-labelledby="download-heading">
