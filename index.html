@@ -6,7 +6,7 @@
     <title>Cometline</title>
     <meta
       name="description"
-      content="Cometline is a local-first desktop AI assistant with semantic memory, agent delegation, slash-command skills, multi-provider support, MCP tools, and a native-feeling macOS interface."
+      content="Cometline is a local-first desktop AI companion with semantic memory, a persistent wiki, inbox notes, scheduled jobs, agent delegation, slash-command skills, multi-provider support, MCP tools, and a native-feeling macOS interface."
     />
     <meta property="og:title" content="Cometline" />
     <meta
@@ -80,8 +80,8 @@
             </h1>
             <p class="hero-text">
               Cometline combines a calm desktop surface with a serious local runtime: streaming
-              reasoning, visible tools, durable memory, and workspace-aware sessions for long-form
-              technical work.
+              reasoning, visible tools, durable memory, a persistent wiki, and workspace-aware
+              sessions for long-form technical work.
             </p>
 
             <div class="hero-actions">
@@ -133,31 +133,32 @@
             <p class="eyebrow">Personas</p>
             <h2 id="personas-heading">One product surface, multiple moods.</h2>
             <p class="section-text">
-              Cometline can present different character styles while keeping the experience elegant
-              and cohesive. The app icons already hint at that flexibility.
+              Switch companions in Settings. Each persona has its own avatar, app icon, and SOUL
+              system prompt, while the runtime and interface stay the same.
             </p>
           </div>
 
           <div class="persona-grid">
             <article class="persona-card persona-card-main">
-              <img src="./static/app_icon.png" alt="Cometline app icon" />
+              <img src="./static/app_icon.png" alt="Minako, the default Cometline persona" />
               <div>
-                <p class="persona-label">Default</p>
-                <h3>Quiet confidence</h3>
+                <p class="persona-label">Minako</p>
+                <h3>Warm, and quietly present</h3>
                 <p>
-                  Warm paper tones and a composed assistant presence for focused engineering work.
+                  The default companion. Soft paper tones and a composed presence for focused
+                  engineering work.
                 </p>
               </div>
             </article>
 
             <article class="persona-card persona-card-alt">
-              <img src="./static/app_icon_man.png" alt="Alternative Cometline persona icon" />
+              <img src="./static/app_icon_man.png" alt="Souma, an alternative Cometline persona" />
               <div>
-                <p class="persona-label">Alternative</p>
-                <h3>Character can evolve</h3>
+                <p class="persona-label">Souma</p>
+                <h3>Warm, with a drier humor</h3>
                 <p>
-                  The assistant can feel more personal or more theatrical while the system remains
-                  grounded in the same runtime and interface model.
+                  A more personal companion voice, still grounded in the same runtime, tools, and
+                  interface model.
                 </p>
               </div>
             </article>
@@ -172,7 +173,8 @@
             </div>
             <p class="section-text">
               The interface stays airy and readable while exposing the things that matter when you
-              are doing serious work with an agent.
+              are doing serious work with an agent: sessions, workspaces, and a companion that can
+              sit beside the rest of the desktop.
             </p>
           </div>
 
@@ -201,7 +203,33 @@
               <img src="./static/fork-session.png" alt="Cometline fork session interface" />
             </article>
 
+            <article class="showcase-card showcase-card-large-b">
+              <div class="showcase-copy">
+                <p class="showcase-kicker">Mini window</p>
+                <h3>Stay close without filling the screen</h3>
+                <p>
+                  A compact window and session drawer keep the companion nearby when you are in
+                  another app, with the same sessions across workspaces.
+                </p>
+              </div>
+              <img src="./static/mini-window.png" alt="Cometline mini window floating over the desktop" />
+            </article>
 
+            <article class="showcase-card showcase-card-side-b">
+              <div class="showcase-copy">
+                <p class="showcase-kicker">Workspaces</p>
+                <h3>Every project keeps its own thread</h3>
+                <p>
+                  Sessions, tools, and memory stay scoped to the workspace. File access stays
+                  sandboxed, and the sidebar groups chats by the project they belong to.
+                </p>
+              </div>
+              <img
+                class="compact-image"
+                src="./static/group-by-workspace.png"
+                alt="Cometline sidebar grouped by workspace"
+              />
+            </article>
           </div>
         </section>
 
@@ -227,8 +255,9 @@
               <h2 id="capabilities-heading">A local agent runtime built for long-form technical work.</h2>
             </div>
             <p class="section-text">
-              Beyond the surface polish, Cometline ships memory, delegation, skills, and provider
-              flexibility — all running on your machine with workspace-scoped boundaries.
+              Beyond the surface polish, Cometline ships memory, a persistent wiki, inbox notes,
+              scheduled jobs, delegation, skills, and provider flexibility. All of it runs on your
+              machine, with workspace-scoped boundaries.
             </p>
           </div>
 
@@ -238,18 +267,38 @@
               <h3>Context that compounds across sessions</h3>
               <p>
                 Relevant memories are retrieved before each turn and new facts are captured
-                automatically — scoped to the workspace so preferences and decisions stay attached
+                automatically, scoped to the workspace so preferences and decisions stay attached
                 to the project they belong to.
               </p>
             </article>
 
             <article class="capability-card">
-              <p class="showcase-kicker">Agent delegation</p>
-              <h3>Hand off coding work to specialized agents</h3>
+              <p class="showcase-kicker">LLM wiki</p>
+              <h3>A knowledge base that compounds</h3>
               <p>
-                Delegate complex refactors and implementation tasks to OpenCode via ACP, with
-                progress streamed back into your chat so you stay in the loop without leaving the
-                desktop.
+                A persistent wiki lives on your machine, with backlinks, browse and edit in the
+                workspace panel, and a built-in <code>/llm-wiki</code> skill to ingest, query, and
+                lint pages over time.
+              </p>
+            </article>
+
+            <article class="capability-card">
+              <p class="showcase-kicker">Jobs and inbox</p>
+              <h3>Work that outlives a single turn</h3>
+              <p>
+                Put tasks on a Kanban-style board, schedule one-shots or cron, and let an optional
+                worker claim them. When something finishes, a short note lands on the bell. Reply
+                later to turn it into memory, or dismiss it.
+              </p>
+            </article>
+
+            <article class="capability-card">
+              <p class="showcase-kicker">Coding agents</p>
+              <h3>Edit in-process, or hand the job off</h3>
+              <p>
+                Native file and shell tools stream diffs in chat, and parallel subagents can split
+                the work. When you want a specialized harness, delegate to OpenCode, Claude Code,
+                or Codex without leaving the desktop.
               </p>
             </article>
 
@@ -264,11 +313,21 @@
             </article>
 
             <article class="capability-card">
+              <p class="showcase-kicker">Workspace surface</p>
+              <h3>Browser, files, wiki, and a session terminal</h3>
+              <p>
+                Browse the web, the workspace tree, and wiki pages side by side. Capture a page,
+                file, or terminal selection as a composer chip. Each session has its own terminal.
+              </p>
+            </article>
+
+            <article class="capability-card">
               <p class="showcase-kicker">Multi-provider</p>
               <h3>Your models, your rules</h3>
               <p>
-                Switch between Anthropic, OpenAI, OpenAI-compatible APIs, OpenCode Go, and ChatGPT
-                Codex. Configure providers, API keys, and default model roles from Settings.
+                Switch between Anthropic, OpenAI, OpenAI-compatible APIs, local Ollama, OpenCode
+                Go, ChatGPT Codex, and xAI Grok. Configure providers, keys, and default model
+                roles from Settings.
               </p>
             </article>
 
@@ -276,8 +335,8 @@
               <p class="showcase-kicker">MCP tools</p>
               <h3>Extend the toolkit with external servers</h3>
               <p>
-                Connect Model Context Protocol servers to expose additional tools to the main agent
-                — bring in databases, APIs, and custom integrations without forking the runtime.
+                Connect Model Context Protocol servers to expose additional tools to the main agent:
+                databases, APIs, and custom integrations, without forking the runtime.
               </p>
             </article>
 
@@ -302,13 +361,19 @@
             <article class="workflow-card">
               <span class="workflow-index">01</span>
               <h3>Cometline</h3>
-              <p>The desktop shell handles the atmosphere, UI, settings, and native feel.</p>
+              <p>
+                The desktop shell handles the atmosphere, UI, workspace panel, terminal, inbox,
+                jobs, and native feel.
+              </p>
             </article>
 
             <article class="workflow-card">
               <span class="workflow-index">02</span>
               <h3>CometMind</h3>
-              <p>The local runtime manages sessions, tools, persistence, memory, and streaming.</p>
+              <p>
+                The local runtime manages sessions, tools, persistence, memory, wiki, scheduling,
+                and streaming.
+              </p>
             </article>
 
             <article class="workflow-card">
@@ -341,7 +406,11 @@
             <div class="download-copy">
               <p class="eyebrow">Download</p>
               <h2 id="download-heading">Install the latest macOS build.</h2>
-              <p>The download buttons resolve to the newest DMG published on GitHub Releases.</p>
+              <p>
+                The download buttons resolve to the newest DMG published on GitHub Releases. Or
+                install with Homebrew:
+                <code>brew install --cask cometline/tap/cometline</code>
+              </p>
             </div>
 
             <div class="download-actions-panel">
