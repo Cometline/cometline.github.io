@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy · Cometline</title>
+    <meta
+      name="description"
+      content="Privacy policy for the Cometline desktop app: what stays on your Mac, what is sent to AI providers and connectors you choose, and what Google account data is used for."
+    />
+    <meta name="theme-color" content="#f4efe5" />
+    <link rel="icon" type="image/png" href="../static/app_icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="/">
+          <img class="brand-icon" src="../static/app_icon.png" alt="" />
+          <span class="brand-wordmark">Cometline</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/#features">Features</a>
+          <a href="/#download">Download</a>
+          <a href="/privacy">Privacy</a>
+        </nav>
+        <a class="button button-small button-secondary" href="/#download">Get the DMG</a>
+      </header>
+
+      <main class="policy-page">
+        <p class="eyebrow">Cometline</p>
+        <h1>Privacy Policy</h1>
+        <p class="policy-meta">Effective date: August 14, 2026. This policy covers the Cometline macOS desktop app and this website.</p>
+
+        <h2>Who we are</h2>
+        <p>
+          Cometline is a local-first desktop AI companion published by the Cometline project
+          (<a href="https://github.com/Cometline/cometline">github.com/Cometline/cometline</a>).
+          The app runs on your Mac. It is not a hosted chat service, and this website does not
+          create accounts.
+        </p>
+        <p>
+          Contact: <a href="mailto:tomlord1122@gmail.com">tomlord1122@gmail.com</a>
+        </p>
+
+        <h2>What this website collects</h2>
+        <p>
+          cometline.github.io is a static site. It does not use analytics, advertising, cookies,
+          or account login. Your browser may request fonts from Google Fonts when a page loads.
+          We do not receive that request, and we do not log visitors.
+        </p>
+
+        <h2>What stays on your Mac</h2>
+        <p>
+          Conversations, workspace files the app reads, semantic memory, the local wiki, inbox
+          notes, scheduled jobs, settings, and connector credentials are stored on your computer,
+          under your user directory (including <code>~/.cometmind</code>). Cometline does not
+          operate a server that receives this data, and the app does not include telemetry,
+          crash reporting, or usage analytics.
+        </p>
+        <p>You can delete this data by removing the app’s local files, or by deleting a session, memory, or connector inside the app.</p>
+
+        <h2>Data you choose to send</h2>
+        <p>
+          Cometline only contacts the network when you configure a provider, model, or connector
+          and then use it. In those cases the app sends the content needed to fulfill that
+          request, from your machine, to the service you selected:
+        </p>
+        <ul>
+          <li>
+            <strong>AI providers you configure</strong> (such as Anthropic, OpenAI, an
+            OpenAI-compatible API, Ollama, OpenCode, ChatGPT Codex, or xAI). Prompts, selected
+            workspace context, and tool results you include in a turn are sent to that
+            provider so it can generate a response. That provider’s own privacy policy governs
+            what it does with the request.
+          </li>
+          <li>
+            <strong>Connectors you connect</strong> (MCP servers such as Atlassian, GitHub, or
+            others you add). The app requests only the access needed for the tools you enable,
+            and sends the tool inputs you or the agent invoke. Tokens for those connections are
+            stored locally.
+          </li>
+          <li>
+            <strong>Update checks.</strong> Download buttons on this site, and in-app update
+            checks, request the public GitHub Releases page for Cometline. That request does
+            not include your chats or workspace files.
+          </li>
+        </ul>
+
+        <h2>Google account data</h2>
+        <p>
+          Cometline requests access to your Google account only if you connect a Google service
+          as a connector. The app uses that access to perform the actions you or the agent
+          invoke through that connector (for example reading or writing the Google data the
+          granted scopes allow). Cometline does not sell Google user data, does not use it for
+          advertising, and does not transfer it to a Cometline server. Google’s processing of
+          the API call is governed by Google’s policies.
+        </p>
+        <p>
+          You can revoke access at any time from the connector settings in the app, and from
+          <a href="https://myaccount.google.com/permissions">your Google Account permissions</a>.
+          Revoking access deletes the locally stored token for that connector.
+        </p>
+
+        <h2>What we do not do</h2>
+        <ul>
+          <li>We do not sell personal information.</li>
+          <li>We do not use your chats, files, or Google data for advertising or to train a Cometline model.</li>
+          <li>We do not share your data with third parties except the providers and connectors you explicitly configure and use.</li>
+          <li>The app is not directed at children under 13, and we do not knowingly collect their data.</li>
+        </ul>
+
+        <h2>Security</h2>
+        <p>
+          Credentials and OAuth tokens are written to local files with restricted permissions.
+          Workspace file access is sandboxed to the workspace you open. No storage method is
+          perfectly secure; protect your Mac user account, and do not share provider keys.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          If this policy changes, the updated text will be published on this page with a new
+          effective date. Continued use of the app after that date means you accept the update.
+        </p>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <div class="footer-brand">
+            <img class="brand-icon" src="../static/app_icon.png" alt="" />
+            <span class="brand-wordmark">Cometline</span>
+          </div>
+          <p>Elegant desktop AI for focused software work.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="https://github.com/Cometline/cometline">GitHub</a>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
